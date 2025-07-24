@@ -157,16 +157,18 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
-        .pokemon-placeholder {
+        .pokemon-image {
             width: 100%;
             height: 200px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .pokemon-caption {
+            padding: 20px;
+            text-align: center;
             font-weight: bold;
+            color: #1e40af;
         }
         
         .coach-section {
@@ -279,24 +281,20 @@
             <h2 class="section-title">ポケモンカードの魅力</h2>
             <div class="pokemon-images">
                 <div class="pokemon-card">
-                    <div class="pokemon-placeholder">
-                        🎴 対戦の様子
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=200&fit=crop" alt="ポケモンカード対戦" class="pokemon-image">
+                    <div class="pokemon-caption">白熱の対戦バトル</div>
                 </div>
                 <div class="pokemon-card">
-                    <div class="pokemon-placeholder">
-                        ⚡ エキサイティングなバトル
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=200&fit=crop" alt="カードゲーム" class="pokemon-image">
+                    <div class="pokemon-caption">戦略的なカードプレイ</div>
                 </div>
                 <div class="pokemon-card">
-                    <div class="pokemon-placeholder">
-                        🏆 勝利の瞬間
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=200&fit=crop" alt="勝利の瞬間" class="pokemon-image">
+                    <div class="pokemon-caption">勝利の達成感</div>
                 </div>
                 <div class="pokemon-card">
-                    <div class="pokemon-placeholder">
-                        👫 仲間との交流
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=200&fit=crop" alt="仲間との交流" class="pokemon-image">
+                    <div class="pokemon-caption">仲間との楽しい時間</div>
                 </div>
             </div>
         </div>
