@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポケモンカード練習会 - 7月28日 秋葉原</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .subtitle {
+            font-size: 1.5em;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .pokemon-ball {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(180deg, #ff0000 50%, #ffffff 50%);
+            border: 4px solid #333;
+            position: relative;
+        }
+
+        .pokemon-ball::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 3px solid #333;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .event-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .detail-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .detail-card h3 {
+            font-size: 1.5em;
+            color: #3498db;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .detail-card p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .icon {
+            font-size: 1.5em;
+        }
+
+        .rotation-info {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+        }
+
+        .rotation-info h3 {
+            color: #e74c3c;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .rotation-info p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .pokemon-images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .pokemon-card {
+            width: 150px;
+            height: 200px;
+            background: linear-gradient(145deg, #f0f0f0, #e0e0e0);
+            border-radius: 15px;
+            border: 3px solid #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .pokemon-card:hover {
+            transform: scale(1.05);
+        }
+
+        .pokemon-card .pokemon-name {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+
+        .pokemon-silhouette {
+            width: 80px;
+            height: 80px;
+            background: #333;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .pokemon-silhouette::before {
+            content: '⚡';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2em;
+            color: #f1c40f;
+        }
+
+        .cta-section {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .pokemon-card {
+                width: 120px;
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="pokemon-ball"></div>
+            <h1>ポケモンカード練習会</h1>
+            <div class="subtitle">みんなで楽しく対戦しよう！</div>
+        </div>
+
+        <div class="event-details">
+            <div class="detail-card">
+                <h3><span class="icon">📅</span>開催日</h3>
+                <p><strong>7月28日（日曜日）</strong></p>
+            </div>
+
+            <div class="detail-card">
+                <h3><span class="icon">📍</span>場所</h3>
+                <p><strong>秋葉原</strong><br>詳細な住所は参加者にお知らせします</p>
+            </div>
+
+            <div class="detail-card">
+                <h3><span class="icon">⏰</span>時間</h3>
+                <p><strong>19:00 - 22:00</strong><br>（3時間）</p>
+            </div>
+        </div>
+
+        <div class="rotation-info">
+            <h3>🔄 対戦ローテーション制</h3>
+            <p>数戦対戦したら対戦相手を交代します！<br>
+            いろんな人と対戦して、様々なデッキタイプを体験しよう。<br>
+            初心者の方も経験者の方も、みんなで楽しく練習できます。</p>
+        </div>
+
+        <div class="pokemon-images">
+            <div class="pokemon-card">
+                <div class="pokemon-silhouette"></div>
+                <div class="pokemon-name">ピカチュウ</div>
+            </div>
+            <div class="pokemon-card">
+                <div class="pokemon-silhouette" style="background: #e74c3c;">
+                    <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 2em;">🔥</span>
+                </div>
+                <div class="pokemon-name">リザードン</div>
+            </div>
+            <div class="pokemon-card">
+                <div class="pokemon-silhouette" style="background: #3498db;">
+                    <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 2em;">💧</span>
+                </div>
+                <div class="pokemon-name">カメックス</div>
+            </div>
+            <div class="pokemon-card">
+                <div class="pokemon-silhouette" style="background: #27ae60;">
+                    <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 2em;">🌿</span>
+                </div>
+                <div class="pokemon-name">フシギバナ</div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2 style="margin-bottom: 20px; color: #2c3e50;">参加をお待ちしています！</h2>
+            <p style="margin-bottom: 30px; font-size: 1.1em;">初心者から上級者まで、どなたでも大歓迎です。<br>
+            デッキをお持ちでない方もご相談ください。</p>
+            <button class="cta-button">参加申し込み</button>
+        </div>
+    </div>
+</body>
+</html>
