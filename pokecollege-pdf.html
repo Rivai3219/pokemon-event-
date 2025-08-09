@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポケカレッジ練習会 | 7月25日 秋葉原</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+
+        body {
+            font-family: 'Hiragino Sans', 'Yu Gothic', 'MS Gothic', sans-serif;
+            background: white;
+            color: #333;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .page {
+            max-width: 21cm;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+
+        .title {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .date-location {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 25px;
+            border-radius: 25px;
+            display: inline-block;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #007bff;
+        }
+
+        .section-title {
+            font-size: 1.4em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .event-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .detail-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            color: #6c757d;
+        }
+
+        .highlights {
+            background: #e8f5e8;
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .highlight-title {
+            color: #28a745;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .highlight-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .highlight-list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .highlight-list li:before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .recommendation-list, .item-list {
+            margin-left: 0;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .recommendation-list li, .item-list li {
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .recommendation-list li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+
+        .item-list li:before {
+            content: "🎒";
+            position: absolute;
+            left: 0;
+        }
+
+        .contact-section {
+            background: #2c3e50;
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .contact-title {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .email {
+            background: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .template-box {
+            background: white;
+            border: 2px solid #dee2e6;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .schedule-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+            text-align: center;
+        }
+
+        .schedule-day {
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 8px;
+        }
+
+        .schedule-event {
+            color: #2c3e50;
+            font-size: 0.9em;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .hashtags {
+            color: #007bff;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .pokemon-emoji {
+            font-size: 1.2em;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .page {
+                box-shadow: none;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- ヘッダー -->
+        <div class="header">
+            <h1 class="title">
+                <span class="pokemon-emoji">⚡</span>
+                ポケカレッジ練習会
+                <span class="pokemon-emoji">🔥</span>
+            </h1>
+            <p class="subtitle">みんなでポケモンカードを楽しもう！</p>
+            <div class="date-location">7月25日（金） 秋葉原開催</div>
+        </div>
+
+        <!-- イベント詳細 -->
+        <div class="section">
+            <h2 class="section-title">📅 イベント詳細</h2>
+            <div class="event-details">
+                <div class="detail-item">
+                    <div class="detail-label">📅 開催日</div>
+                    <div class="detail-value">2025年7月25日（金）</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">🕐 時間</div>
+                    <div class="detail-value">18:00 - 21:00</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">📍 場所</div>
+                    <div class="detail-value">秋葉原会議室<br>（詳細は後日連絡）</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">💰 参加費</div>
+                    <div class="detail-value">500円（会場費として）</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">👥 定員</div>
+                    <div class="detail-value">20名（先着順）</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">📅 申込締切</div>
+                    <div class="detail-value">7月23日（水）</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- イベントの特徴 -->
+        <div class="highlights">
+            <div class="highlight-title">✨ イベントの特徴</div>
+            <ul class="highlight-list">
+                <li>初心者から上級者まで大歓迎</li>
+                <li>カジュアルな雰囲気で対戦を楽しめます</li>
+                <li>デッキ構築のアドバイスももらえます</li>
+                <li>新しい仲間と出会えるチャンス</li>
+                <li>最新環境のデッキを体験できます</li>
+            </ul>
+        </div>
+
+        <!-- おすすめ -->
+        <div class="section">
+            <h2 class="section-title">🎯 こんな方におすすめ</h2>
+            <ul class="recommendation-list">
+                <li>ポケモンカードを始めたばかりの方</li>
+                <li>対戦相手を探している方</li>
+                <li>新しいデッキを試したい方</li>
+                <li>ポケカ仲間を増やしたい方</li>
+                <li>大会前の練習をしたい方</li>
+            </ul>
+        </div>
+
+        <!-- 持ち物 -->
+        <div class="section">
+            <h2 class="section-title">📋 持ち物</h2>
+            <ul class="item-list">
+                <li>ポケモンカードのデッキ（60枚構築）</li>
+                <li>ダメカン・コイン等のサプライ</li>
+                <li>参加費（500円）</li>
+                <li>飲み物（会場にも自販機あり）</li>
+            </ul>
+        </div>
+
+        <!-- お問い合わせ -->
+        <div class="contact-section">
+            <h2 class="contact-title">📧 参加申込・お問い合わせ</h2>
+            <p>参加希望の方は下記までご連絡ください</p>
+            <div class="email">pokecollege@example.com</div>
+        </div>
+
+        <!-- 申込テンプレート -->
+        <div class="section">
+            <h2 class="section-title">📝 申込テンプレート</h2>
+            <div class="template-box">
+件名: ポケカレッジ練習会 参加申込
+
+お名前: [お名前をご記入ください]
+ハンドルネーム: [対戦時に呼ばれたい名前]
+年齢: [年齢をご記入ください]
+参加希望イベント: 7月25日（金）ポケカレッジ練習会
+
+ポケモンカード経験:
+□ 初心者（始めたばかり）
+□ 中級者（ある程度経験あり）
+□ 上級者（大会参加経験あり）
+
+使用予定デッキ: [例: ピカチュウex、リザードンex、未定など]
+
+質問・コメント:
+[ご質問やご要望があればご記入ください]
+
+よろしくお願いいたします。
+            </div>
+        </div>
+
+        <!-- 今後のスケジュール -->
+        <div class="section">
+            <h2 class="section-title">🏆 今後のイベントスケジュール</h2>
+            <div class="schedule-grid">
+                <div class="schedule-item">
+                    <div class="schedule-day">毎週金曜日</div>
+                    <div class="schedule-event">定期練習会<br>18:00-21:00</div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-day">月末土曜日</div>
+                    <div class="schedule-event">月例大会<br>13:00-17:00<br>賞品付き</div>
+                </div>
+                <div class="schedule-item">
+                    <div class="schedule-day">不定期開催</div>
+                    <div class="schedule-event">初心者講習会<br>デッキ構築講座</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- フッター -->
+        <div class="footer">
+            <h3>🌟 ポケカレッジについて</h3>
+            <p>初心者から上級者まで楽しめるポケモンカード対戦コミュニティ</p>
+            <p>📍 東京都千代田区 秋葉原周辺</p>
+            <div class="hashtags">#ポケモンカード #ポケカ #対戦会 #秋葉原 #練習会</div>
+            <p style="margin-top: 15px; font-size: 0.9em; color: #6c757d;">
+                © 2025 ポケカレッジ. All rights reserved.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
